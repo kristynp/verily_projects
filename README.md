@@ -1,6 +1,6 @@
 # VerilyProjects
 
-Check out what projects verily is currently working on.
+Check out what projects verily is currently working on!
 
 ## Installation
 
