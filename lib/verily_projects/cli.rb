@@ -19,30 +19,32 @@ module VerilyProjects
     end
 
     def get_projects
-      @projects = VerilyProjects::Scraper.new.scrape_projects
+      @projects = VerilyProjects::Project.all
+      VerilyProjects::Project.new('aw, yeah')
+
+
     end
 
     def list_projects
       @projects.each.with_index(1) do |project, index|
-      puts "#{index}. #{project}"
+      puts "#{index}. #{project.name}"
       end
     end
 
     def get_user_project
       @chosen_project = gets.strip.to_i
-      if valid_input?(@chosen_project, @projects)
-    end
-
+      show_info_for(chosen_project) if valid_input?(@chosen_project, @projects)
     end
 
     def valid_input?(input, data)
       #check to make sure @chosen_project is within the range given
-      if input <= data.length && input > 0
+      if input.to_i <= data.length && input.to_i > 0
       end
     end
 
-    def get_project_details
-      #get project info using scraper class
+    def show_info_for(chosen_project)
+      project = @projects[@chosen_project - 1]
+      puts "Here's more info about #{project}"
     end
 
     def get_user_response
