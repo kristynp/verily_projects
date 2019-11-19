@@ -20,8 +20,6 @@ module VerilyProjects
 
     def get_projects
       @projects = VerilyProjects::Project.all
-      VerilyProjects::Project.new('aw, yeah')
-
 
     end
 

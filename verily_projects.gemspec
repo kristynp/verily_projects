@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "verily_projects/version"
 require "verily_projects/cli"
 require "verily_projects/scraper"
-require "verily_projects/projects"
+require "verily_projects/project"
 
 Gem::Specification.new do |spec|
   spec.name          = "verily_projects"
