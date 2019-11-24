@@ -40,14 +40,15 @@ module VerilyProjects
     end
 
     def show_info_for(chosen_project)
-      project = @projects[@chosen_project - 1]
 
-      #VerilyProjects::Info.new(project, "Such description", "How we do things!")
-
+      index = @chosen_project - 1
+      project = @projects[index]
+      VerilyProjects::Scraper.scrape_info(project, index)
       puts "Here's more info about #{project.name}"
+
+      puts project.description
+      puts project.how
       #binding.pry
-      #puts project description
-      #puts project how 
     end
 
     # def get_user_response

@@ -1,12 +1,13 @@
 require_relative './cli.rb'
 
 class VerilyProjects::Project
-    attr_accessor :name, :project, :info
+    attr_accessor :name, :project, :description, :how
   @@all = []
-  
+
   def initialize(name)
     @name = name
-    @info = []
+    @description = ""
+    @how = ""
     save
   end
 
@@ -16,11 +17,12 @@ class VerilyProjects::Project
   end
 
   def info
-    # binding.pry
     # check if there is any info. If no info, scrape it.
-    VerilyProjects::Scraper.scrape_info(self) if @info.empty?
+    info = VerilyProjects::Scraper.scrape_info(self) if @description.empty?
     #self will be referring to chosen month for our purposes.
-    @info
+    binding.pry 
+    # puts @description
+    # puts @how
   end
 
   def save
