@@ -5,6 +5,7 @@ require "verily_projects/version"
 require "verily_projects/cli"
 require "verily_projects/scraper"
 require "verily_projects/project"
+#require "verily_projects/info"
 
 Gem::Specification.new do |spec|
   spec.name          = "verily_projects"

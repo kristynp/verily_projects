@@ -4,9 +4,10 @@ require 'pry'
 require 'csv'
 require_relative './cli.rb'
 require_relative './project.rb'
+require_relative './info.rb'
 
 class VerilyProjects::Scraper
-  attr_accessor :name
+  attr_accessor :name, :projects
 
   def self.scrape_projects
     site = "https://verily.com/projects/"
@@ -14,12 +15,15 @@ class VerilyProjects::Scraper
     @projects = []
     doc.each do |project|
       clean = project.gsub(/\s+/, "")
-      @projects << clean unless clean == ""
+      @projects << VerilyProjects::Project.new(clean) unless clean == ""
     end
-    @projects.each {|project| VerilyProjects::Project.new(project)}
   end
 
+  def self.scrape_info(project)
+    #binding.pry
+    VerilyProjects::Info.new(project, "Such description", "How we do things!")
+  end
   VerilyProjects::Scraper.scrape_projects
-  puts @projects
-  #binding.pry
+  #VerilyProjects::Scraper.scrape_info(@projects)
+
 end
