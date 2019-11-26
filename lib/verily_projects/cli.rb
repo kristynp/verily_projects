@@ -2,17 +2,19 @@ require 'pry'
 
 module VerilyProjects
   class CLI
+    @continue_response = "nil"
+
     def call
-      #VerilyProjects::Scraper.new.projects
       puts "\nWelcome to the verily projects CLI! \n"
-      get_projects
-      list_projects
-      get_user_project
-      #puts "Would you like more information about another project? Please enter y/n."
-      #get_user_response
-      #logic to determine whether to loop through beginning of CLI for new project.
-      # else, continue
-      puts "Have a great day!"
+      while @continue_response != "no" && @continue_response != "n"
+        get_projects
+        list_projects
+        get_user_project
+        puts "\nWould you like more information about another project? Please enter y/n."
+        get_continue_response
+      end
+
+      puts "\nHave a great day!"
     end
 
     def get_projects
@@ -33,26 +35,21 @@ module VerilyProjects
     end
 
     def valid_input?(input, data)
-      #check to make sure @chosen_project is within the range given
       if input.to_i <= data.length && input.to_i > 0
         true
       end
     end
 
     def show_info_for(chosen_project)
-
       index = @chosen_project - 1
       project = @projects[index]
       VerilyProjects::Scraper.scrape_info(project, index)
-      puts "Here's more info about #{project.name}"
-
-      puts project.description
-      puts project.how
-      #binding.pry
+      puts "\nHere's more info about #{project.name}"
+      puts "\n #{project.info}"
     end
 
-    # def get_user_response
-    #   @user_response = gets.strip
-    # end
+    def get_continue_response
+       @continue_response = gets.strip
+    end
   end
 end

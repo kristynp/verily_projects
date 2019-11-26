@@ -4,10 +4,9 @@ require 'pry'
 require 'csv'
 require_relative './cli.rb'
 require_relative './project.rb'
-#require_relative './info.rb'
 
 class VerilyProjects::Scraper
-  attr_accessor :name, :projects
+  attr_accessor :name, :projects, :info
 
   def self.scrape_projects
     site = "https://verily.com/projects/"
@@ -26,11 +25,9 @@ class VerilyProjects::Scraper
 
     second_level_site = "https://verily.com" << link_array[index]
     doc = Nokogiri::HTML(open(second_level_site)).css('p').text
-  #  doc = doc.gsub(/\s\s+/, "")
-
-    project.description = doc
-    #project.how = "How we do things!"
-
+    doc = doc.gsub(/\n\s\s+/, " ")
+    project.info = doc
   end
+
 
 end
