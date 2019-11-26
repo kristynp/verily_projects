@@ -1,6 +1,6 @@
 # VerilyProjects
 
-Check out what projects verily is currently working on!
+Learn about the projects verily is currently working on!
 
 ## Installation
 
@@ -20,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+This is intended for reading about the projects that verily is working on.
 
 ## Development
 
