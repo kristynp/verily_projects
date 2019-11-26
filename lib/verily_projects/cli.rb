@@ -10,12 +10,11 @@ module VerilyProjects
         get_projects
         list_projects
         get_user_project
-        puts "\nWould you like more information about another project? Please enter y/n."
         get_continue_response
       end
-
       puts "\nHave a great day!"
     end
+
 
     def get_projects
       @projects = VerilyProjects::Project.all
@@ -49,7 +48,8 @@ module VerilyProjects
     end
 
     def get_continue_response
-       @continue_response = gets.strip
+      puts "\nWould you like more information about another project? Please enter y/n."
+      @continue_response = gets.strip
     end
   end
 end

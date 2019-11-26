@@ -1,7 +1,7 @@
 require_relative './cli.rb'
 
 class VerilyProjects::Project
-    attr_accessor :name, :project, :info
+    attr_accessor :name, :info
   @@all = []
 
   def initialize(name)
