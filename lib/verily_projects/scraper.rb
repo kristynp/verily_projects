@@ -28,6 +28,4 @@ class VerilyProjects::Scraper
     doc = doc.gsub(/\n\s\s+/, " ")
     project.info = doc
   end
-
-
 end
