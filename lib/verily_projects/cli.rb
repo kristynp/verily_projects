@@ -2,6 +2,7 @@ require 'pry'
 
 module VerilyProjects
   class CLI
+    puts 'hi'
     @continue_response = "nil"
 
     def call
