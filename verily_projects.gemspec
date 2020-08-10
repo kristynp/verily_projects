@@ -1,20 +1,25 @@
-
-lib = File.expand_path("../lib", __FILE__)
+#lib = File.expand_path('lib', __dir__)
+#lib = File.expand_path("../lib", __FILE__)
+File.expand_path(__FILE__) et al
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "verily_projects/version"
-require "verily_projects/cli"
-require "verily_projects/scraper"
-require "verily_projects/project"
+require_relative "verily_projects/version"
+require_relative "verily_projects/cli"
+require_relative "verily_projects/scraper"
+require_relative "verily_projects/project"
 
 Gem::Specification.new do |spec|
   spec.name          = "verily_projects"
   spec.version       = VerilyProjects::VERSION
-  spec.authors       = ["<github username>"]
-  spec.email         = ["<github email address>"]
+  spec.authors       = ["<kristynp"]
+  spec.email         = ["kristyparker1@gmail.com"]
 
-  spec.summary       = "spec summary"
+  spec.summary       = "verily project scraper"
   spec.homepage      = "http://www.knp.com"
   spec.license       = "MIT"
+  
+  spec.require_paths = ["lib"]
+
+  spec.required_ruby_version = '~> 2.0'
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
